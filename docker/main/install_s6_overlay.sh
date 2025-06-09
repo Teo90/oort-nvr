@@ -17,3 +17,4 @@ wget -qO- "https://github.com/just-containers/s6-overlay/releases/download/v${s6
 
 wget -qO- "https://github.com/just-containers/s6-overlay/releases/download/v${s6_version}/s6-overlay-${s6_arch}.tar.xz" |
     tar -C /rootfs/ -Jxpf -
+chmod +x /etc/s6-overlay/s6-rc.d/log-prepare/run
