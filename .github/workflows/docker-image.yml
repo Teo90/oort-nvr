@@ -17,7 +17,7 @@ jobs:
         username: ${{ github.actor }} # 当前github 用户名
         password: ${{ secrets.GITHUB_TOKEN }}  #自行创建https://github.com/settings/tokens/new
     - name: Build the Docker image
-      run: 
+      run: |
         chmod +x docker/main/build_nginx.sh docker/main/install_s6_overlay.sh docker/main/install_deps.sh  
         docker build . --file docker/main/Dockerfile --tag ghcr.io/Teo90/oort-nvr:$(date +%s)
         docker push ghcr.io/Teo90/oort-nvr:$(date +%s)
