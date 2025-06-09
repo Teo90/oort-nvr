@@ -18,6 +18,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}  #自行创建https://github.com/settings/tokens/new
     - name: Build the Docker image
       run: |
+        TAG=$(date +%s)
         chmod +x docker/main/build_nginx.sh docker/main/install_s6_overlay.sh docker/main/install_deps.sh  
-        docker build . --file docker/main/Dockerfile --tag ghcr.io/teo90/oort-nvr:$(date +%s)
-        docker push ghcr.io/teo90/oort-nvr:$(date +%s)
+        docker build . --file docker/main/Dockerfile --tag ghcr.io/teo90/oort-nvr:$TAG
+        docker push ghcr.io/teo90/oort-nvr:$TAG
