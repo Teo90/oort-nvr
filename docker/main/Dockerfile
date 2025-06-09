@@ -188,7 +188,7 @@ RUN --mount=type=bind,from=wheels,source=/wheels,target=/deps/wheels \
 
 COPY --from=deps-rootfs / /
 
-RUN ldconfig
+RUN ldconfig && chmod +x /etc/s6-overlay/s6-rc.d/log-prepare/run
 
 EXPOSE 5000
 EXPOSE 1935
