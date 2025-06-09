@@ -19,5 +19,5 @@ jobs:
     - name: Build the Docker image
       run: |
         chmod +x docker/main/build_nginx.sh docker/main/install_s6_overlay.sh docker/main/install_deps.sh  
-        docker build . --file docker/main/Dockerfile --tag ghcr.io/Teo90/oort-nvr:$(date +%s)
-        docker push ghcr.io/Teo90/oort-nvr:$(date +%s)
+        docker build . --file docker/main/Dockerfile --tag ghcr.io/teo90/oort-nvr:$(date +%s)
+        docker push ghcr.io/teo90/oort-nvr:$(date +%s)
