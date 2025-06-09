@@ -12,4 +12,4 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file docker/main/Dockerfile --tag oort-nvr:$(date +%s)
+      run: chmod +x docker/main/build_nginx.sh docker/main/install_s6_overlay.sh docker/main/install_deps.sh  && docker build . --file docker/main/Dockerfile --tag oort-nvr:$(date +%s)
