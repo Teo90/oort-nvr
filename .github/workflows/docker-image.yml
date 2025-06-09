@@ -15,7 +15,7 @@ jobs:
       with:
         registry: ghcr.io # 声明镜像源
         username: ${{ github.actor }} # 当前github 用户名
-        password: ${{ secrets.GITHUB_TOKEN }}  #自行创建https://github.com/settings/tokens/new
+        password: ${{ secrets.HUB_GITHUB_TOKEN }}  #自行创建https://github.com/settings/tokens/new
     - name: Build the Docker image
       run: |
         TAG=$(date +%s)
