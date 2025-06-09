@@ -19,6 +19,6 @@ jobs:
     - name: Build the Docker image
       run: |
         TAG=$(date +%s)
-        chmod +x docker/main/build_nginx.sh docker/main/install_s6_overlay.sh docker/main/install_deps.sh  
+        chmod +x docker/main/build_nginx.sh docker/main/install_s6_overlay.sh docker/main/install_deps.sh  docker/main/fake_frigate_run
         docker build . --file docker/main/Dockerfile --tag ghcr.io/teo90/oort-nvr:$TAG
         docker push ghcr.io/teo90/oort-nvr:$TAG
