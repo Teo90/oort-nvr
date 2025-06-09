@@ -11,5 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+    - uses: docker/login-action@v1
+      with:
+        registry: ghcr.io # 声明镜像源
+        username: ${{ github.actor }} # 当前github 用户名
+        password: ${{ secrets.HUB_GITHUB_TOKEN }}  #自行创建https://github.com/settings/tokens/new
     - name: Build the Docker image
-      run: chmod +x docker/main/build_nginx.sh docker/main/install_s6_overlay.sh docker/main/install_deps.sh  && docker build . --file docker/main/Dockerfile --tag oort-nvr:$(date +%s)
+      run: 
+        chmod +x docker/main/build_nginx.sh docker/main/install_s6_overlay.sh docker/main/install_deps.sh  
+        docker build . --file docker/main/Dockerfile --tag ghcr.io/Teo90/oort-nvr:$(date +%s)
+        docker push ghcr.io/Teo90/oort-nvr:$(date +%s)
